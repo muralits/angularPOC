@@ -1,6 +1,8 @@
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,16 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formGroup:FormGroup | any
-  constructor(private authService:AuthService) { }
+  public books: any;
+  public status: any;
+  formGroup:FormGroup | any;
+  constructor(private authService:AuthService,private crud:CrudService) { }
 
   ngOnInit() {
     this.initform();
   }
   initform(){
   this.formGroup= new FormGroup({
-    //"Username":"ashish","Password":"ashish"
     Username : new FormControl ('',[Validators.required]),
     Password : new FormControl ('',[Validators.required])
   });
@@ -24,13 +27,19 @@ export class LoginComponent implements OnInit {
   loginProcess(){
     if(this.formGroup.valid){
         this.authService.login(this.formGroup.value).subscribe(result=>{
-          if(result.success){
+          if(result!=null){
             console.log(result);
-            alert(result.message);
-          }else{
-            alert(result.message);
+          }else {
+            console.log(result);
           }
         })
       }
+    }
+   public publicData(){
+    this.crud.getpublicdata().subscribe(result=>{
+        this.books = result;
+        alert(this.books);
+        console.log(result)
+      })
     }
 }
