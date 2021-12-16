@@ -6,7 +6,7 @@
 //   production: false
 // };
 //export const baseURL =`http://localhost:38668/`;
-export const environment = `https://jwtauthpoc.azurewebsites.net/`
+export const environment = `https://pocjwtapi.azurewebsites.net/`
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
