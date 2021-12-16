@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { baseURL } from 'src/environments/environment';
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class CrudService {
   constructor(private http:HttpClient) { }
 
  public getpublicdata():Observable<any>{
-  return this.http.get(`${baseURL}api/User/Public`,{responseType: 'text'}).pipe(
+  return this.http.get(`${environment}api/User/Public`,{responseType: 'text'}).pipe(
     catchError(this.handleError)
     );
   }
