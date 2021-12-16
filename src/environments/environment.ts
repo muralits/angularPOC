@@ -5,7 +5,7 @@
 // export const environment = {
 //   production: false
 // };
-//export const baseURL =`http://localhost:38668/`;
+//export const environment =`http://localhost:38668/`;
 export const environment = `https://pocjwtapi.azurewebsites.net/`
 /*
  * For easier debugging in development mode, you can import the following file
