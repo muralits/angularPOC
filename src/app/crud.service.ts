@@ -11,7 +11,7 @@ export class CrudService {
   constructor(private http:HttpClient) { }
 
  public getpublicdata():Observable<any>{
-  return this.http.get(`${environment}api/User/Public`,{responseType: 'text'}).pipe(
+  return this.http.get("https://pocjwtapi.azurewebsites.net/api/User/Public",{responseType: 'text'}).pipe(
     catchError(this.handleError)
     );
   }

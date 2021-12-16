@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
   login(data: any):Observable<any>{
-    return this.http.post(`${environment}api/Login/Login`,data,{responseType: 'text'}).pipe(
+    return this.http.post("https://pocjwtapi.azurewebsites.net/api/Login/Login",data,{responseType: 'text'}).pipe(
       catchError(error => {
           this.errorMsg = error.message;
           return of([this.getServerErrorMessage]);
