@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { CrudService } from '../crud.service';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent implements OnInit {
   public books: any;
   public status: any;
   formGroup:FormGroup | any;
-  constructor(private authService:AuthService,private crud:CrudService) { }
+  constructor(
+    private authService:AuthService,
+    private crud:CrudService,
+    private _route:Router
+    ) { }
 
   ngOnInit() {
     this.initform();
@@ -29,6 +34,7 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.formGroup.value).subscribe(result=>{
           if(result!=null){
             console.log(result);
+            this._route.navigate(['/menu']);
           }else {
             console.log(result);
           }

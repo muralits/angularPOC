@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-menutool',
@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenutoolComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _route:Router) { }
 
   ngOnInit(): void {
   }
-
+  public EmpRegistration(){
+    console.log("hhh");
+    
+    this._route.navigate(['/employee']);
+  }
 }

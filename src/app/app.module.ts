@@ -14,11 +14,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MenutoolComponent } from './menutool/menutool.component';
+import { EmployeedataComponent } from './employeedata/employeedata.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MenutoolComponent
+    MenutoolComponent,
+    EmployeedataComponent
   ],
   imports: [
     BrowserModule,
