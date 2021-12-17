@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { CrudService } from '../crud.service';
 import { ActivatedRoute,Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

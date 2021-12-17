@@ -1,25 +1,55 @@
 <div fxLayoutAlign="center top" fxFill class="main-div">
   <mat-tab-group> 
-    <mat-tab label="Home"> Home Details </mat-tab>
+    <mat-tab label="Home">
+      <div fxLayoutAlign="center top" fxFill class="main-div">
+        <mat-card fxFlex="25">
+
+        </mat-card>
+      </div>
+    </mat-tab>
     <mat-tab label="Employee Registration">
       <div fxLayoutAlign="center top" fxFill class="main-div">
         <mat-card fxFlex="25">
-          <form  fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+          <form  fxLayoutAlign="stretch" fxLayout="column" class="reg-form" [formGroup]="formGroup" (ngSubmit)="regProcess()">
             <mat-toolbar color="primary">Employee Details</mat-toolbar>
-            <mat-form-field><input matInput placeholder="Username" /></mat-form-field>
-            <mat-form-field><input matInput placeholder="Abut"/></mat-form-field>
-            <mat-form-field><input matInput placeholder="Place" /></mat-form-field>
-            <mat-form-field><input matInput  placeholder="City"/></mat-form-field>
-            <mat-form-field><input matInput  placeholder="State"/></mat-form-field>
-            <mat-form-field><input matInput  placeholder="Coutry"/></mat-form-field>
-            <button mat-raised-button type="submit">Login</button>
+            <mat-form-field><input matInput placeholder="Name" formControlName="Name"/></mat-form-field>
+            <mat-form-field><input matInput placeholder="About" formControlName="About"/></mat-form-field>
+            <mat-form-field><input matInput placeholder="Place" formControlName="Place"/></mat-form-field>
+            <mat-form-field><input matInput  placeholder="City" formControlName="City"/></mat-form-field>
+            <mat-form-field><input matInput  placeholder="State" formControlName="State"/></mat-form-field>
+            <mat-form-field><input matInput  placeholder="Country" formControlName="Country"/></mat-form-field>
+            <button mat-raised-button type="submit">Submit</button>
           </form>
         </mat-card>
       </div>
     </mat-tab> 
-    <mat-tab label="public"> public Details</mat-tab>
-    <mat-tab label="Admin"> Admin Details</mat-tab>
-    <mat-tab label="Developer"> Developer Details</mat-tab>
-    <mat-tab label="Admin/Developer"> Admin/Developer Details</mat-tab>
+    <mat-tab label="public"> 
+      <div fxLayoutAlign="center top" fxFill class="main-div">
+        <mat-card fxFlex="25">
+          <button mat-stroked-button color="accent" (click)="publicRole()">Check Your Role Public</button>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Admin"> 
+      <div fxLayoutAlign="center top" fxFill class="main-div">
+        <mat-card fxFlex="25">
+          <button mat-stroked-button color="accent" (click)="adminRole()">Check Your Role Admin</button>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Developer"> 
+      <div fxLayoutAlign="center top" fxFill class="main-div">
+        <mat-card fxFlex="25">
+          <button mat-stroked-button color="accent" (click)="developerRole()">Check Your Role Developer</button>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Admin/Developer"> 
+      <div fxLayoutAlign="center center" fxFill class="main-div">
+        <mat-card fxFlex="25">
+          <button mat-stroked-button color="accent" (click)="admindevRole()">Check Your Role Admin/Developer</button>
+        </mat-card>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>
