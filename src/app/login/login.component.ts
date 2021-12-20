@@ -30,13 +30,15 @@ export class LoginComponent implements OnInit {
     Password : new FormControl ('',[Validators.required])
   });
 }
-  loginProcess(){
+ public loginProcess(){
     if(this.formGroup.valid){
         this.authService.login(this.formGroup.value).subscribe(result=>{
-          if(result!=null){
-            console.log(result);
+          if(result.message=="Success"){
+            
+            localStorage.setItem('token',result.token);
             this._route.navigate(['/menu']);
           }else {
+            alert("User name and password incorrect")
             console.log(result);
           }
         })

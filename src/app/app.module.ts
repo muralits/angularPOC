@@ -10,11 +10,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MenutoolComponent } from './menutool/menutool.component';
 import { EmployeedataComponent } from './employeedata/employeedata.component';
+import { TokenInterceptor } from './shared/token-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,11 @@ import { EmployeedataComponent } from './employeedata/employeedata.component';
     ReactiveFormsModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

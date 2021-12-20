@@ -32,7 +32,7 @@ export class MenutoolComponent implements OnInit {
   }
   public regProcess(){
       this.empreg.regProcess(this.formGroup.value).subscribe(result=>{
-        if(result!=null){
+        if(result.message=="Success"){
           console.log(result);
           alert ("Employee Added");
         }else {
