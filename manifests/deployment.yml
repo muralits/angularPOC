@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "kubernetangularui-a3d3"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "kubernetangularui-a3d3"
+  template:
+    metadata:
+      labels:
+        app: "kubernetangularui-a3d3"
+    spec:
+      containers:
+        - name: "kubernetangularui-a3d3"
+          image: "angularui.azurecr.io/kubernetangularui"
+          ports:
+          - containerPort: 80
