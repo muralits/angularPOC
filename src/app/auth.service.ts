@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
   login(data: any):Observable<any>{
-    return this.http.post("https://jwtauthpoc.azurewebsites.net/api/Auth/Auth",data,{responseType: 'json'}).pipe(
+    return this.http.post("http://40.74.233.57:8019/api/Auth/Auth",data,{responseType: 'json'}).pipe(
       catchError(error => {
           this.errorMsg = error.message;
           return of([this.getServerErrorMessage]);
